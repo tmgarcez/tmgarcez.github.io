@@ -1,0 +1,33 @@
+/* About page hero: image + text side-by-side, responsive */
+.about-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.about-hero img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about-hero .intro {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Stack on small screens */
+@media (max-width: 600px) {
+  .about-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-hero img {
+    width: 140px;
+    height: 140px;
+  }
+}
