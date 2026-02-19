@@ -1,0 +1,121 @@
+baseURL: "https://tm.garcez.xyz/"
+languageCode: "en-US"
+title: "tm . garcez"
+theme: "PaperMod"
+
+enableEmoji: true
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+pygmentsUseClasses: true
+
+mainsections:
+  - "posts"
+  - "about"
+
+minify:
+  disableXML: true
+  # minifyOutput: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: false
+languages:
+  en:
+    languageName: "English"
+    languageCode: "en-US"
+    weight: 1
+    taxonomies:
+      category: "categories"
+      tag: "tags"
+      series: "series"
+    menu:
+      main:
+        - name: ". about"
+          url: "about/"
+          weight: 5
+        - name: ". posts"
+          url: "posts/"
+          weight: 10
+        - name: ". archive"
+          url: "archives/"
+          weight: 10
+        - name: ". search"
+          url: "search/"
+          weight: 10
+
+outputFormats:
+  llms:
+    mediaType: "text/plain"
+    baseName: "llms"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+    - "llms"
+
+permalinks:
+  posts: "/posts/:year/:month/:slug/"
+
+params:
+  env: "production"
+  description: "Personal site: writing, projects, and notes."
+  keywords: ["engineering", "software", "blog"]
+  author:
+    - "tmgarcez"
+
+  DateFormat: "2006-01-02 15:04" # ISO-like: YYYY-MM-DD HH:MM (24h)
+  defaultTheme: "auto"
+  disableThemeToggle: false
+  displayFullLangName: true
+  ShowShareButtons: false
+  ShareButtons:
+    - "linkedin"
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: false
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+
+  assets:
+    disableHLJS: true
+
+  profileMode:
+    enabled: true
+    title: "hello, I'm Tiago."
+    subtitle: "Minimal welcome card. Clean writing. Solid engineering."
+    imageUrl: "/images/me.jpg"
+    imageTitle: "tm . garcez"
+    imageWidth: 180
+    imageHeight: 180
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/tmgarcez"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/garmiti/"
+    - name: "email"
+      url: "mailto:tiago.mp&#097;teiro&#64;gmail.com"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+sitemap:
+  changefreq: "weekly"
+  priority: 0.5
