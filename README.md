@@ -7,7 +7,10 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 ## Features
 
 - Clean, minimal design with dark/light theme toggle
+- Profile mode homepage with intro and quick links
 - Blog posts with reading time estimates
+- Career/CV page with downloadable PDF resume
+- Projects showcase
 - Full-text search
 - Archive page
 - RSS feed
@@ -23,8 +26,14 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 │   └── css/           # Custom CSS overrides
 ├── content/
 │   ├── about/         # About page
-│   └── posts/         # Blog posts
-├── static/            # Static assets
+│   ├── cv/            # Career timeline
+│   ├── posts/         # Blog posts
+│   └── projects/      # Projects showcase
+├── static/
+│   ├── cv/            # Downloadable CV PDF
+│   ├── images/        # Profile and other images
+│   ├── favicon.svg    # Site favicon
+│   └── logo.svg       # Site logo
 ├── themes/
 │   └── PaperMod/      # Theme (git submodule)
 ├── hugo.yaml          # Site configuration

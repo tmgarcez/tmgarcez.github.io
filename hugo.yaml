@@ -1,8 +1,10 @@
 baseURL: "https://tm.garcez.xyz/"
 languageCode: "en-US"
+timeZone: "Europe/Lisbon"
 title: "tm . garcez"
 theme: "PaperMod"
 
+enableGitInfo: true
 enableEmoji: true
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -14,6 +16,8 @@ pygmentsUseClasses: true
 mainsections:
   - "posts"
   - "about"
+  - "cv"
+  - "projects"
 
 minify:
   disableXML: true
@@ -39,9 +43,12 @@ languages:
         - name: ". about"
           url: "about/"
           weight: 5
-        - name: ". posts"
-          url: "posts/"
-          weight: 10
+        - name: ". career"
+          url: "cv/"
+          weight: 5
+        - name: ". projects"
+          url: "projects/"
+          weight: 7
         - name: ". archive"
           url: "archives/"
           weight: 10
@@ -77,6 +84,7 @@ params:
   defaultTheme: "auto"
   disableThemeToggle: false
   displayFullLangName: true
+  ShowLastMod: true
   ShowShareButtons: false
   ShareButtons:
     - "linkedin"
@@ -91,23 +99,45 @@ params:
 
   assets:
     disableHLJS: true
+    favicon: "/favicon.svg"
+    favicon16x16: "/favicon.svg"
+    favicon32x32: "/favicon.svg"
+    apple_touch_icon: "/favicon.svg"
+
+  label:
+    text: "tm . garcez"
+    icon: "/logo.svg"
+    iconHeight: 28
 
   profileMode:
     enabled: true
-    title: "hello, I'm Tiago."
-    subtitle: "Minimal welcome card. Clean writing. Solid engineering."
+    title: "hello, I'm Tiago"
+    subtitle: "a product-minded and backend-first Senior Software Engineer currently at PagerDuty and based in Lisbon. Recently, bringing AI into products via agentic flows and integrations; incubating new tech, validating impact early, and shipping what proves value. Just dropping some writing about the tech-stuff I do and find on my day-to-day (AI, home automation, home assistant and hands-on build notes)."
     imageUrl: "/images/me.jpg"
     imageTitle: "tm . garcez"
     imageWidth: 180
     imageHeight: 180
+    buttons:
+      - name: ". more about me"
+        url: "/about/"
+      - name: ". my path"
+        url: "/cv/"
+      - name: ". projects"
+        url: "/projects/"
+      - name: ". some of my posts"
+        url: "/posts/"
 
   socialIcons:
     - name: "github"
       url: "https://github.com/tmgarcez"
     - name: "linkedin"
-      url: "https://www.linkedin.com/in/garmiti/"
+      url: "https://www.linkedin.com/in/tmgarcez/"
     - name: "email"
       url: "mailto:tiago.mp&#097;teiro&#64;gmail.com"
+    - name: "cv"
+      url: "/cv/tmgarcez-cv.pdf"
+    - name: "rss"
+      url: "/index.xml"
 
 markup:
   goldmark:
