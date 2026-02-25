@@ -46,7 +46,7 @@ Backend engineering • Technical design & documentation • AI integrations/age
 
 - <i class="fa-brands fa-github"></i> [github.com/tmgarcez](https://github.com/tmgarcez)
 - <i class="fa-brands fa-linkedin"></i> [linkedin.com/in/tmgarcez](https://www.linkedin.com/in/tmgarcez/)
-- <i class="fa-solid fa-envelope"></i> <a href="mailto:tiago.mp&#097;teiro&#64;gmail.com">tiago.mp&#097;teiro&#64;gmail.com</a>
+- <i class="fa-solid fa-envelope"></i> <a href="mailto:cont&#097;ct&#64;g&#097;rcez.xyz">cont&#097;ct&#64;g&#097;rcez.xyz</a>
 - <i class="fa-solid fa-location-dot"></i> Lisbon, Portugal
 
 ---
