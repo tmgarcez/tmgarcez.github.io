@@ -90,10 +90,6 @@ Stack: SQL, MySQL, Pentaho BI, Java
 
 ---
 
-#### Patents
-
-Co-inventor on three patent filings at PagerDuty.
-
 #### Education
 
 - MSc, Knowledge Management & Information Systems — ISCTE-IUL, 2018

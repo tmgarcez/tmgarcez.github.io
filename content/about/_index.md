@@ -38,7 +38,6 @@ I like systems that stay understandable under load, and I'd rather cut a feature
 #### Background
 
 - Engineering since 2011 — PagerDuty, Defined.ai, Truphone, BookedBy, and consultancy before that.
-- Co-inventor on three patent filings.
 - MSc in Knowledge Management & Information Systems (ISCTE-IUL, 2018); Postgraduate Diploma and BSc in Computer Science (FCT-NOVA).
 
 The detail sits on the [career page](/cv/) — projects, scope, and what actually shipped.
