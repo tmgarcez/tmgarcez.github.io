@@ -15,12 +15,11 @@ Lisbon, Portugal • Jun 2022–Present
 
 Agentic incident-response product: LangGraph orchestration over Python services, an SSE streaming layer, a Node BFF, and a Vite single-page client.
 
-- Designed and led the metering platform behind credit-based consumption of AI capabilities, a pricing model new to PagerDuty. Every metered call passes through it, at high throughput inside a tight latency budget, so billing stays accurate and fair-use limits hold without latency users can feel.
+- Designed and led the metering service behind AI Actions, the usage-based consumption model for PagerDuty Advance — every metered call passes through it at high throughput inside a tight latency budget, so usage accounting stays accurate and per-account limits hold.
 - Built the shared memory layer agents write their context into — designed the contracts and use cases directly with the other teams whose agents would depend on it, rather than shipping an interface and asking them to adapt. Now backs several agents in production.
 - Separated durable from transient state in the LangGraph checkpointer, so resumed runs replay persisted state without re-emitting intermediate tool traffic — removing a recurring class of context-overflow failures.
-- Worked on Agent Connectors, bring-your-own-MCP support that lets agents reach a customer's existing integrations instead of waiting on first-party ones being built.
-- Shipped the Skills mechanism for the SRE agent: procedural playbooks loaded at run time instead of hard-coded into prompts. Presented internally at PagerDuty's AI showcase.
-- Currently prototyping deeper-reasoning agents for diagnosis and remediation, to shift investigation load off whoever is on call.
+- Worked on Agent Connectors, which link the SRE Agent to a customer's observability and knowledge sources over API or MCP so it can query their existing tooling.
+- Shipped the Skills mechanism for the SRE Agent: custom instructions and runbooks the agent loads at run time, so it follows a team's own procedures instead of generic ones. Presented internally at PagerDuty's AI showcase.
 
 **Status Pages — 2022 to 2024**
 
