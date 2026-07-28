@@ -13,10 +13,10 @@ Lisbon, Portugal • Jun 2022–Present
 
 **AI incident response — 2024 to present**
 
-Agentic incident-response product: LangGraph orchestration over Python services, an SSE streaming layer, a Node BFF, and a Vite single-page client.
+Backend and agent-orchestration work on an agentic incident-response product, built on LangGraph over Python services.
 
-- Designed and led the metering service behind AI Actions, the usage-based consumption model for PagerDuty Advance — every metered call passes through it at high throughput inside a tight latency budget, so usage accounting stays accurate and per-account limits hold.
-- Built the shared memory layer agents write their context into — designed the contracts and use cases directly with the other teams whose agents would depend on it, rather than shipping an interface and asking them to adapt. Now backs several agents in production.
+- Designed and led the metering service behind AI Actions, the usage-based consumption model for PagerDuty Advance. Every metered call passes through it: over 2,000 requests per minute at roughly 50ms, so usage accounting stays accurate and per-account limits hold.
+- Built the shared memory layer agents write their context into — designed the contracts and use cases directly with the other teams whose agents would depend on it, rather than shipping an interface and asking them to adapt. Now backs three agents in production at roughly 500 requests per minute inside a 120ms budget.
 - Separated durable from transient state in the LangGraph checkpointer, so resumed runs replay persisted state without re-emitting intermediate tool traffic — removing a recurring class of context-overflow failures.
 - Worked on Agent Connectors, which link the SRE Agent to a customer's observability and knowledge sources over API or MCP so it can query their existing tooling.
 - Shipped the Skills mechanism for the SRE Agent: custom instructions and runbooks the agent loads at run time, so it follows a team's own procedures instead of generic ones. Presented internally at PagerDuty's AI showcase.
@@ -24,8 +24,8 @@ Agentic incident-response product: LangGraph orchestration over Python services,
 **Status Pages — 2022 to 2024**
 
 - Project lead for subscriptions and notifications, two of the three critical user journeys. Designed the notification service to be modular so channels could land incrementally, then shipped email, Slack, webhooks and SMS across three consecutive quarterly releases, each on its committed date.
-- Led the storage migration from S3 to DynamoDB once the original design's performance assumptions stopped holding under growth: modelled the schema, wrote the ADRs, and delivered the provisioning. Read latency improved by roughly an order of magnitude.
-- Built bring-your-own-identity-provider support for Private Status Pages: customers gate their page behind their own OIDC provider — Azure, Okta, PingID, Salesforce, JumpCloud — instead of exposing it publicly, with onboarding kept to minimal setup. Session handling and JWKS/openid-configuration caching served provider metadata from CloudFront to cut round-trips out to customer identity providers. I ran the setup calls with enterprise customers directly and wrote the provider configuration guides into the company knowledge base.
+- Led the storage migration from S3 to DynamoDB once the original design's performance assumptions stopped holding under growth: modelled the schema, wrote the ADRs, and delivered the provisioning. Read latency dropped from roughly 200ms to under 10ms.
+- Built bring-your-own-identity-provider support for Private Status Pages: customers gate their page behind their own OIDC provider — Azure, Okta, PingID, Salesforce, JumpCloud — instead of exposing it publicly, with onboarding kept to minimal setup. Session handling and JWKS/openid-configuration caching served provider metadata from CloudFront to cut round-trips out to customer identity providers. The capability drove premium-tier upsell into enterprise accounts; I ran the setup calls with those customers directly and wrote the provider configuration guides into the company knowledge base.
 - Co-led custom domain provisioning — DNS and email white-labelling so notifications send from the customer's own domain. Diagnosed timeouts in de-provisioning and moved the flow async via an ADR, without moving the release date.
 - Co-authored the product design document, led the Kubernetes migration, and bootstrapped the codebase for a newly formed team, taking it from first commit to GA in six months. Ran the notification build-versus-buy analysis against the internal platform the team ultimately adopted.
 - Owned observability: SLIs and SLOs behind the team's SLAs, structured JSON logging with request correlation, and a monitoring overhaul that cut on-call alert fatigue. Migrated the service to TypeScript and raised test coverage past 70%.
