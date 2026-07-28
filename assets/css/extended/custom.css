@@ -1,9 +1,9 @@
-/* About page hero: image + text side-by-side, responsive */
+/* About page hero: portrait + short lede, side by side */
 .about-hero {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin: 0 0 1.5rem 0;
+  gap: 1.75rem;
+  margin: 0 0 2rem 0;
 }
 
 .about-hero img {
@@ -14,10 +14,21 @@
   flex-shrink: 0;
 }
 
+.about-hero-text {
+  min-width: 0;
+}
+
 .about-hero .intro {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.about-hero .intro-sub {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  font-style: italic;
 }
 
 /* Stack on small screens */
@@ -25,9 +36,15 @@
   .about-hero {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.25rem;
   }
+
   .about-hero img {
     width: 140px;
     height: 140px;
+  }
+
+  .about-hero .intro {
+    font-size: 1.1rem;
   }
 }

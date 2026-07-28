@@ -6,6 +6,10 @@ on:
   push:
     branches: ["main"]
 
+  # Build-only validation before merge; the deploy job is skipped below.
+  pull_request:
+    branches: ["main"]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -15,11 +19,13 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Production deploys stay serialised: on push the ref is always main, so they
+# share one group and are never cancelled mid-flight. PR builds get their own
+# group per ref, so they neither queue behind nor delay a deploy, and a new push
+# to a PR supersedes its own in-flight build.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 # Default to bash
 defaults:
@@ -37,12 +43,14 @@ jobs:
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          # Full history: enableGitInfo derives page timestamps (.Lastmod,
+          # sitemap <lastmod>) from git log. A shallow clone collapses every
+          # page to the single fetched commit's date.
+          fetch-depth: 0
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -61,8 +69,9 @@ jobs:
         with:
           path: ./public
 
-  # Deployment job
+  # Deployment job — push and manual runs only; pull requests build to validate.
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

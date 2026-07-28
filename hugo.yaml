@@ -75,7 +75,7 @@ permalinks:
 
 params:
   env: "production"
-  description: "Personal site: writing, projects, and notes."
+  description: "Tiago Pateiro — backend engineer in Lisbon. Agentic AI systems, distributed backends. Writing on AI agents, systems design, and home automation."
   keywords: ["engineering", "software", "blog"]
   author:
     - "tmgarcez"
@@ -112,7 +112,7 @@ params:
   profileMode:
     enabled: true
     title: "hello, I'm Tiago"
-    subtitle: "a product-minded and backend-first Senior Software Engineer currently at PagerDuty and based in Lisbon. Recently, bringing AI into products via agentic flows and integrations; incubating new tech, validating impact early, and shipping what proves value. Just dropping some writing about the tech-stuff I do and find on my day-to-day (AI, home automation, home assistant and hands-on build notes)."
+    subtitle: "Backend engineer, thirteen years in, at PagerDuty in Lisbon. I work on agentic AI systems and what it takes to run them in production — state, cost, failure modes, evaluation. Here I write about what I'm building: AI agents, home automation, and hands-on notes."
     imageUrl: "/images/me.jpg"
     imageTitle: "tm . garcez"
     imageWidth: 180
