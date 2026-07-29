@@ -26,7 +26,8 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 │       └── hugo.yml    # Build and deploy to GitHub Pages
 ├── archetypes/         # Content templates
 ├── assets/
-│   └── css/            # Custom CSS overrides
+│   ├── css/            # Custom CSS overrides
+│   └── cv/             # Downloadable CV PDF (hashed, see below)
 ├── content/
 │   ├── about/          # About page
 │   ├── cv/             # Career timeline
@@ -35,7 +36,6 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 ├── layouts/
 │   └── partials/       # Theme template overrides
 ├── static/
-│   ├── cv/             # Downloadable CV PDF
 │   ├── images/         # Profile and other images
 │   ├── favicon.svg     # Site favicon
 │   └── logo.svg        # Site logo
@@ -139,6 +139,34 @@ Bump both, run `asdf install`, then verify with `hugo --minify` before pushing.
 ```bash
 hugo new posts/my-new-post.md
 ```
+
+## Updating the CV PDF
+
+Replace `assets/cv/tmgarcez-cv.pdf` and rebuild — nothing else to do. The link is
+cache-busted automatically, so there is no version string to remember to bump.
+
+GitHub Pages serves every asset with a fixed `Cache-Control: max-age=600` and
+allows no response-header overrides (no `_headers`, no `.htaccess`), so the URL is
+the only cache key we control. That TTL does not help on mobile anyway: browsers
+hand PDFs to an external viewer or the Downloads folder rather than the page
+cache, and in-app browsers proxy them through a server-side viewer that ignores
+it entirely. Both leave visitors on an old CV indefinitely.
+
+`layouts/partials/social_icons.html` therefore hashes the file's own bytes at
+build time and appends them to the link:
+
+```html
+<a href="/cv/tmgarcez-cv.pdf?v=e5669c29">
+```
+
+Living in `assets/` rather than `static/` is what makes this possible — only
+`assets/` goes through Hugo Pipes, where `resources.Get` exposes the content to
+hash. The file still publishes to `/cv/tmgarcez-cv.pdf`, so links already shared
+elsewhere keep resolving.
+
+The rule is generic: any `socialIcons` entry whose URL maps to a file under
+`assets/` gets the same treatment. External links, `mailto:` and Hugo-generated
+paths like `/index.xml` pass through untouched.
 
 ## Updating the Theme
 
