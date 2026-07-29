@@ -1,0 +1,30 @@
+{{- /*
+    Overrides PaperMod's social_icons partial to add content-hash cache busting to
+    any social icon URL backed by a file under assets/.
+
+    GitHub Pages serves every asset with a fixed `Cache-Control: max-age=600` and
+    offers no way to override response headers, so the URL is the only cache key we
+    control. Mobile browsers hand PDFs to an external viewer rather than the page
+    cache, and in-app browsers often proxy them through a server-side viewer that
+    ignores the TTL entirely — both leave visitors on a stale CV long after a
+    deploy. Hashing the file's own bytes into the query string means the link
+    changes whenever the file does, while the published path stays stable so links
+    already shared elsewhere keep resolving.
+
+    Non-asset entries (external profiles, mailto:, Hugo-generated /index.xml) fall
+    through to the configured URL untouched.
+*/ -}}
+<div class="social-icons" {{ with .align }}align="{{ . }}" {{- end }}>
+    {{- range site.Params.socialIcons }}
+    {{- $url := trim .url " " }}
+    {{- if hasPrefix $url "/" }}
+        {{- with resources.Get (strings.TrimPrefix "/" $url) }}
+            {{- $url = printf "%s?v=%s" .RelPermalink (substr (.Content | crypto.SHA256) 0 8) }}
+        {{- end }}
+    {{- end }}
+    <a href="{{ $url | safeURL }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+</div>
