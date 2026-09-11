@@ -13,22 +13,22 @@ Lisbon, Portugal • Jun 2022–Present
 
 **AI incident response — 2024 to present**
 
-Backend and agent-orchestration work on an agentic incident-response product, built on LangGraph over Python services.
+Backend and agent orchestration work on an agentic incident-response product built with LangGraph and Python services.
 
-- Designed and led the metering service behind AI Actions, the usage-based consumption model for PagerDuty Advance. Every metered call passes through it: over 2,000 requests per minute at roughly 50ms, so usage accounting stays accurate and per-account limits hold.
-- Built the shared memory layer agents write their context into — designed the contracts and use cases directly with the other teams whose agents would depend on it, rather than shipping an interface and asking them to adapt. Now backs three agents in production at roughly 500 requests per minute inside a 120ms budget.
-- Separated durable from transient state in the LangGraph checkpointer, so resumed runs replay persisted state without re-emitting intermediate tool traffic — removing a recurring class of context-overflow failures.
+- Designed and led the metering service behind AI Actions, PagerDuty Advance's usage-based consumption model. It handles every metered call: over 2,000 requests per minute at roughly 50ms, keeping usage accounting accurate and per-account limits enforced.
+- Built the shared memory layer where agents store context. Defined its contracts and use cases with the teams whose agents depend on it. It backs three production agents at roughly 500 requests per minute within a 120ms budget.
+- Separated durable state from transient state in the LangGraph checkpointer. Resumed runs now replay persisted state without re-emitting intermediate tool traffic. This removed a recurring class of context-overflow failures.
 - Worked on Agent Connectors, which link the SRE Agent to a customer's observability and knowledge sources over API or MCP so it can query their existing tooling.
-- Shipped the Skills mechanism for the SRE Agent: custom instructions and runbooks the agent loads at run time, so it follows a team's own procedures instead of generic ones. Presented internally at PagerDuty's AI showcase.
+- Shipped the Skills mechanism for the SRE Agent: custom instructions and runbooks it loads at run time to follow a team's procedures. Presented it internally at PagerDuty's AI showcase.
 
 **Status Pages — 2022 to 2024**
 
-- Project lead for subscriptions and notifications, two of the three critical user journeys. Designed the notification service to be modular so channels could land incrementally, then shipped email, Slack, webhooks and SMS across three consecutive quarterly releases, each on its committed date.
-- Led the storage migration from S3 to DynamoDB once the original design's performance assumptions stopped holding under growth: modelled the schema, wrote the ADRs, and delivered the provisioning. Read latency dropped from roughly 200ms to under 10ms.
-- Built bring-your-own-identity-provider support for Private Status Pages: customers gate their page behind their own OIDC provider — Azure, Okta, PingID, Salesforce, JumpCloud — instead of exposing it publicly, with onboarding kept to minimal setup. Session handling and JWKS/openid-configuration caching served provider metadata from CloudFront to cut round-trips out to customer identity providers. The capability drove premium-tier upsell into enterprise accounts; I ran the setup calls with those customers directly and wrote the provider configuration guides into the company knowledge base.
-- Co-led custom domain provisioning — DNS and email white-labelling so notifications send from the customer's own domain. Diagnosed timeouts in de-provisioning and moved the flow async via an ADR, without moving the release date.
-- Co-authored the product design document, led the Kubernetes migration, and bootstrapped the codebase for a newly formed team, taking it from first commit to GA in six months. Ran the notification build-versus-buy analysis against the internal platform the team ultimately adopted.
-- Owned observability: SLIs and SLOs behind the team's SLAs, structured JSON logging with request correlation, and a monitoring overhaul that cut on-call alert fatigue. Migrated the service to TypeScript and raised test coverage past 70%.
+- Project lead for subscriptions and notifications, two of the product's three critical user journeys. Designed the notification service so channels could land incrementally, then shipped email, Slack, webhooks, and SMS across three consecutive quarterly releases, each on its committed date.
+- Modelled the persistence schema, wrote the ADRs, and quantified an expected reduction in read latency from roughly 200ms to under 10ms up front.
+- Built bring-your-own-identity-provider support for Private Status Pages. Customers can restrict access through OIDC providers including Azure, Okta, PingID, Salesforce, and JumpCloud with minimal setup. Cached JWKS and OpenID Connect discovery data in CloudFront to reduce calls to customer identity providers. The capability supported premium-tier upsell into enterprise accounts; I ran setup calls with those customers and wrote the provider configuration guides for the company knowledge base.
+- Co-led custom-domain provisioning for DNS and email white-labelling, allowing notifications to send from the customer's domain. Diagnosed de-provisioning timeouts and moved the flow asynchronous through an ADR without moving the release date.
+- Co-authored the product design document, led the Kubernetes migration, and bootstrapped the codebase for a new team. It went from first commit to GA in six months. Ran the notification build-versus-buy analysis against the internal platform the team adopted.
+- Owned observability, including SLIs and SLOs behind the team's SLAs, structured JSON logging with request correlation, and a monitoring overhaul that reduced on-call alert fatigue. Migrated the service to TypeScript and raised test coverage past 70%.
 
 Stack: Python, Elixir, Node.js/TypeScript, LangGraph, AWS (Lambda, SQS, DynamoDB, CloudFront), Kubernetes, Terraform, MySQL, Redis, Elasticsearch
 
@@ -37,8 +37,8 @@ Stack: Python, Elixir, Node.js/TypeScript, LangGraph, AWS (Lambda, SQS, DynamoDB
 Lisbon, Portugal • Jul 2019–May 2022
 *Speech and NLP training-data platform built on a global crowd workforce.*
 
-- Led a cross-functional team of eight — four backend, two front-end, two QA, working alongside a PM — building automation and data tooling that replaced manual crowd workflows, cutting human handling per task and improving margin on delivered datasets.
-- Owned the technical design for human-in-the-loop quality systems, contributor e-learning and gamification. My scope was the pre-screening tests that gate expert-level work: a contributor had to pass a language-specific assessment — an en-US test before translation tasks, for instance — before that work was offered to them. Raised task throughput by 60%.
+- Led a cross-functional team of eight: four backend engineers, two front-end engineers, two QA engineers, and a PM. Built automation and data tooling that replaced manual crowd workflows, reducing human handling per task and improving margin on delivered datasets.
+- Owned the technical design for human-in-the-loop quality systems, contributor e-learning, and gamification. My scope included pre-screening tests for expert-level work. Contributors had to pass a language-specific assessment, such as an en-US test before translation tasks, before they could receive that work. Raised task throughput by 60%.
 
 Stack: .NET, React, TypeScript, Azure, SQL Server, Spark, Kafka, Superset
 
@@ -48,7 +48,7 @@ Lisbon, Portugal • Aug 2017–Jun 2019
 *Global eSIM provider and mobile network operator.*
 
 - Gathered stakeholder requirements and defined the architecture for customer-facing portals and mobile apps, on the product line responsible for over 60% of company revenue.
-- Part of the team that shipped one of the first iPhone apps built on Apple's initial eSIM release — over-the-air data plans and profile provisioning.
+- Part of the team that shipped one of the first iPhone apps built on Apple's initial eSIM release, supporting over-the-air data plans and profile provisioning.
 
 Stack: .NET, React Native, TypeScript, MongoDB, Elasticsearch, SQL, Java, Spark
 
