@@ -21,7 +21,6 @@ What to expect:
 Format:
 
 - Minimal context, clear steps, and copy‑pasteable commands/config.
-- Version info and a quick “worked for me” section.
-- If it helps someone else, even better.
+- Version information and a quick "worked for me" section.
 
 Subscribe via RSS at [/index.xml](/index.xml). New posts whenever there's something worth saving.

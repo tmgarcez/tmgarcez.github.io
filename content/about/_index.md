@@ -7,12 +7,12 @@ ShowRssButtonInSectionTermList: false
 <div class="about-hero">
   <img src="/images/me.jpg" alt="Tiago" />
   <div class="about-hero-text">
-    <p class="intro">I'm Tiago. I work on agentic AI systems at PagerDuty — mostly the part that decides whether they survive production: state, cost, failure modes, and whether the thing actually works.</p>
+    <p class="intro">I'm Tiago. I work on agentic AI systems at PagerDuty, mostly the parts that determine whether they survive production: state, cost, failure modes, and whether the system works.</p>
     <p class="intro-sub">The model is rarely the hard part.</p>
   </div>
 </div>
 
-Before that I spent a few years at the other end of the same problem — taking products from nothing to launch and then into revenue. New team, no precedent, six months to GA. Work out what's actually being asked, write it down, then build it in pieces that can ship independently.
+Before that, I took products from first idea to launch and revenue. The teams were often new, with no precedent and six months to GA. The work was to establish what was being asked, write it down, and build it in pieces that could ship independently.
 
 I like systems that stay understandable under load, and I'd rather cut a feature than ship one nobody can operate.
 
@@ -20,27 +20,27 @@ I like systems that stay understandable under load, and I'd rather cut a feature
 
 #### What I work on
 
-- **Agentic systems in production** — orchestration, agent state and memory, tool integration, cost control, evaluation.
-- **Distributed backend services** and the contracts between them, including the ones other teams depend on.
-- **Early-stage product delivery** — design doc to GA, in a team that's often being formed at the same time.
-- **Operability** — SLIs and SLOs, structured logging, dashboards, and reducing what on-call has to carry.
-- **Technical design** — design documents, ADRs, and the cross-team alignment that has to happen before either is worth writing.
+- Agentic systems in production: orchestration, agent state and memory, tool integration, cost control, and evaluation.
+- Distributed backend services and the contracts between them, including the ones other teams depend on.
+- Early-stage product delivery, from design doc to GA, in teams that are often being formed at the same time.
+- Operability: SLIs and SLOs, structured logging, dashboards, and reducing what on-call has to carry.
+- Technical design: design documents, ADRs, and the cross-team alignment required before either is worth writing.
 
 #### How I work
 
-- **Start from the outcome, not the tool.** Involved early in shaping what gets built, not handed a spec.
-- **Design doc before code**, and ADRs for the decisions worth revisiting later. If a choice will be questioned in a year, write it down now.
-- **Break down ambiguity.** Scope the work, surface risks early, keep delivery incremental.
-- **Lead across boundaries.** Most of the problems worth solving sit between teams. I'd rather agree a contract with the people who'll depend on my service than ship an interface and expect them to adapt.
-- **Don't stop at merge.** I've run setup calls with enterprise customers and written the documentation myself.
-- **Incubation means cutting things.** De-risk early, measure, drop what doesn't prove out.
+- Start with the outcome. I get involved early in defining what to build, before a spec is handed over.
+- Write the design doc before code, and ADRs for decisions worth revisiting later. If a choice will be questioned in a year, write it down now.
+- Break down ambiguity. I scope the work, surface risks early, and keep delivery incremental.
+- Lead across boundaries. Most worthwhile problems sit between teams. I work with the people who will depend on the service to agree its contract.
+- Stay involved after merge. I've run setup calls with enterprise customers and written the documentation myself.
+- Cut scope in incubation. De-risk early, measure, and drop what does not prove out.
 
 #### Background
 
-- Engineering since 2011 — PagerDuty, Defined.ai, Truphone, BookedBy, and consultancy before that.
+- Engineering since 2011: PagerDuty, Defined.ai, Truphone, BookedBy, and consultancy before that.
 - MSc in Knowledge Management & Information Systems (ISCTE-IUL, 2018); Postgraduate Diploma and BSc in Computer Science (FCT-NOVA).
 
-The detail sits on the [career page](/cv/) — projects, scope, and what actually shipped.
+The [career page](/cv/) has the project details, scope, and what shipped.
 
 #### Outside work
 
@@ -51,15 +51,15 @@ The detail sits on the [career page](/cv/) — projects, scope, and what actuall
 
 #### Skills
 
-**AI systems** — LangGraph, agent orchestration, tool calling, MCP, agent state and memory, prompt and context design, knowledge graphs
+AI systems: LangGraph, agent orchestration, tool calling, MCP, agent state and memory, prompt and context design, knowledge graphs
 
-**Programming** — Python, .NET/C#, Elixir, Node.js, TypeScript/JavaScript, SQL
+Programming: Python, .NET/C#, Elixir, Node.js, TypeScript/JavaScript, SQL
 
-**Backend** — Distributed services, event-driven architecture, streaming APIs (SSE), OIDC/OAuth, design docs and ADRs
+Backend: Distributed services, event-driven architecture, streaming APIs (SSE), OIDC/OAuth, design docs, and ADRs
 
-**Cloud & infra** — AWS, Terraform, Kubernetes, Docker, CI/CD, observability (SLIs/SLOs, structured logging, dashboards)
+Cloud and infrastructure: AWS, Terraform, Kubernetes, Docker, CI/CD, observability (SLIs/SLOs, structured logging, dashboards)
 
-**Data** — MySQL, PostgreSQL, DynamoDB, Redis, Elasticsearch, Kafka, Spark
+Data: MySQL, PostgreSQL, DynamoDB, Redis, Elasticsearch, Kafka, Spark
 
 ---
 
