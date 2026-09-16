@@ -1,6 +1,6 @@
 ---
 title: '. career'
-description: 'Career timeline: agentic AI systems, Status Pages from zero to GA, and 13+ years of backend engineering across product and consultancy.'
+description: '13+ years in software engineering across product teams and consultancy, with a focus on backend systems and recent work on agentic AI.'
 ShowRssButtonInSectionTermList: false
 ---
 
@@ -13,7 +13,7 @@ Lisbon, Portugal • Jun 2022–Present
 
 **AI incident response — 2024 to present**
 
-Backend and agent orchestration work on an agentic incident-response product built with LangGraph and Python services.
+Backend services and agent orchestration for an AI incident-response product, built with Python and LangGraph.
 
 - Designed and led the metering service behind AI Actions, PagerDuty Advance's usage-based consumption model. It handles every metered call: over 2,000 requests per minute at roughly 50ms, keeping usage accounting accurate and per-account limits enforced.
 - Built the shared memory layer where agents store context. Defined its contracts and use cases with the teams whose agents depend on it. It backs three production agents at roughly 500 requests per minute within a 120ms budget.
@@ -24,9 +24,9 @@ Backend and agent orchestration work on an agentic incident-response product bui
 **Status Pages — 2022 to 2024**
 
 - Project lead for subscriptions and notifications, two of the product's three critical user journeys. Designed the notification service so channels could land incrementally, then shipped email, Slack, webhooks, and SMS across three consecutive quarterly releases, each on its committed date.
-- Modelled the persistence schema, wrote the ADRs, and quantified an expected reduction in read latency from roughly 200ms to under 10ms up front.
+- Modelled the persistence schema and documented the decision in ADRs. Estimated a reduction in read latency from roughly 200ms to under 10ms.
 - Built bring-your-own-identity-provider support for Private Status Pages. Customers can restrict access through OIDC providers including Azure, Okta, PingID, Salesforce, and JumpCloud with minimal setup. Cached JWKS and OpenID Connect discovery data in CloudFront to reduce calls to customer identity providers. The capability supported premium-tier upsell into enterprise accounts; I ran setup calls with those customers and wrote the provider configuration guides for the company knowledge base.
-- Co-led custom-domain provisioning for DNS and email white-labelling, allowing notifications to send from the customer's domain. Diagnosed de-provisioning timeouts and moved the flow asynchronous through an ADR without moving the release date.
+- Co-led custom-domain provisioning for DNS and email white-labelling, allowing notifications to send from the customer's domain. Diagnosed de-provisioning timeouts and moved the flow to asynchronous processing. Documented the decision in an ADR and kept the original release date.
 - Co-authored the product design document, led the Kubernetes migration, and bootstrapped the codebase for a new team. It went from first commit to GA in six months. Ran the notification build-versus-buy analysis against the internal platform the team adopted.
 - Owned observability, including SLIs and SLOs behind the team's SLAs, structured JSON logging with request correlation, and a monitoring overhaul that reduced on-call alert fatigue. Migrated the service to TypeScript and raised test coverage past 70%.
 
@@ -37,7 +37,7 @@ Stack: Python, Elixir, Node.js/TypeScript, LangGraph, AWS (Lambda, SQS, DynamoDB
 Lisbon, Portugal • Jul 2019–May 2022
 *Speech and NLP training-data platform built on a global crowd workforce.*
 
-- Led a cross-functional team of eight: four backend engineers, two front-end engineers, two QA engineers, and a PM. Built automation and data tooling that replaced manual crowd workflows, reducing human handling per task and improving margin on delivered datasets.
+- Led a team of eight: four backend engineers, two front-end engineers, and two QA engineers, working alongside a PM. Built automation and data tooling that replaced manual crowd workflows, reducing human handling per task and improving margin on delivered datasets.
 - Owned the technical design for human-in-the-loop quality systems, contributor e-learning, and gamification. My scope included pre-screening tests for expert-level work. Contributors had to pass a language-specific assessment, such as an en-US test before translation tasks, before they could receive that work. Raised task throughput by 60%.
 
 Stack: .NET, React, TypeScript, Azure, SQL Server, Spark, Kafka, Superset

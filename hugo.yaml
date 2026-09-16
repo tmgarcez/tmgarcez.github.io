@@ -45,16 +45,10 @@ languages:
           weight: 5
         - name: ". career"
           url: "cv/"
-          weight: 5
-        - name: ". projects"
-          url: "projects/"
-          weight: 7
-        - name: ". archive"
-          url: "archives/"
           weight: 10
-        - name: ". search"
-          url: "search/"
-          weight: 10
+        - name: ". posts"
+          url: "posts/"
+          weight: 15
 
 outputFormats:
   llms:
@@ -75,7 +69,7 @@ permalinks:
 
 params:
   env: "production"
-  description: "Tiago Pateiro — backend engineer in Lisbon. Agentic AI systems, distributed backends. Writing on AI agents, systems design, and home automation."
+  description: "Tiago Pateiro, senior software engineer at PagerDuty in Lisbon. Distributed systems, backend engineering, and LLM-based agents for incident response."
   keywords: ["engineering", "software", "blog"]
   author:
     - "tmgarcez"
@@ -112,20 +106,16 @@ params:
   profileMode:
     enabled: true
     title: "hello, I'm Tiago"
-    subtitle: "Backend engineer, thirteen years in, at PagerDuty in Lisbon. I work on agentic AI systems and what it takes to run them in production — state, cost, failure modes, evaluation. Here I write about what I'm building: AI agents, home automation, and hands-on notes."
+    subtitle: "Senior software engineer at PagerDuty in Lisbon, with 13+ years of experience. I build distributed systems and work on LLM-based agents for incident response."
     imageUrl: "/images/me.jpg"
     imageTitle: "tm . garcez"
     imageWidth: 180
     imageHeight: 180
     buttons:
-      - name: ". more about me"
+      - name: ". about"
         url: "/about/"
-      - name: ". my path"
+      - name: ". career"
         url: "/cv/"
-      - name: ". projects"
-        url: "/projects/"
-      - name: ". some of my posts"
-        url: "/posts/"
 
   socialIcons:
     - name: "github"

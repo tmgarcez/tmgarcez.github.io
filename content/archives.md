@@ -1,6 +1,6 @@
 ---
-title: '. posts'
+title: '. archive'
 layout: 'archives'
 # url: '/archives/'
-summary: 'posts'
+summary: 'Posts by date.'
 ---

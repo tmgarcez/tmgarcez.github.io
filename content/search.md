@@ -1,5 +1,5 @@
 ---
 title: '. search' # in any language you want
-placeholder: 'the dawn, day & dusk ...'
+placeholder: 'Search posts'
 layout: 'search' # necessary for search
 ---

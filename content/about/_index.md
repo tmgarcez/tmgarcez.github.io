@@ -1,51 +1,40 @@
 ---
 title: '. about'
-description: 'Backend engineer in Lisbon, thirteen years in. Agentic AI systems, distributed backends, and taking early-stage products from design doc to launch.'
+description: 'My work, background, and interests.'
 ShowRssButtonInSectionTermList: false
 ---
 
 <div class="about-hero">
-  <img src="/images/me.jpg" alt="Tiago" />
+  <img src="/images/me.jpg" alt="Tiago Pateiro" />
   <div class="about-hero-text">
-    <p class="intro">I'm Tiago. I work on agentic AI systems at PagerDuty, mostly the parts that determine whether they survive production: state, cost, failure modes, and whether the system works.</p>
-    <p class="intro-sub">The model is rarely the hard part.</p>
+    <p class="intro">I'm Tiago, a senior software engineer with 13+ years of experience, currently at PagerDuty in Lisbon.</p>
+    <p class="intro-sub">I build distributed systems and work on LLM-based agents for incident response.</p>
   </div>
 </div>
 
-Before that, I took products from first idea to launch and revenue. The teams were often new, with no precedent and six months to GA. The work was to establish what was being asked, write it down, and build it in pieces that could ship independently.
+My current work on agentic AI covers orchestration, state and memory, tool integrations, and evaluation. I've built services for shared agent context and usage metering, and worked on how agent runs persist and resume.
 
-I like systems that stay understandable under load, and I'd rather cut a feature than ship one nobody can operate.
+Before that, I led backend work on PagerDuty Status Pages, from the initial design through launch and enterprise rollout.
 
 ---
 
-#### What I work on
-
-- Agentic systems in production: orchestration, agent state and memory, tool integration, cost control, and evaluation.
-- Distributed backend services and the contracts between them, including the ones other teams depend on.
-- Early-stage product delivery, from design doc to GA, in teams that are often being formed at the same time.
-- Operability: SLIs and SLOs, structured logging, dashboards, and reducing what on-call has to carry.
-- Technical design: design documents, ADRs, and the cross-team alignment required before either is worth writing.
-
 #### How I work
 
-- Start with the outcome. I get involved early in defining what to build, before a spec is handed over.
-- Write the design doc before code, and ADRs for decisions worth revisiting later. If a choice will be questioned in a year, write it down now.
-- Break down ambiguity. I scope the work, surface risks early, and keep delivery incremental.
-- Lead across boundaries. Most worthwhile problems sit between teams. I work with the people who will depend on the service to agree its contract.
-- Stay involved after merge. I've run setup calls with enterprise customers and written the documentation myself.
-- Cut scope in incubation. De-risk early, measure, and drop what does not prove out.
+I help define what to build, including product requirements, constraints, and operational needs. I write down the design and trade-offs, then break the work into pieces that can ship independently. Across teams, I look for what we can reuse, weigh building against buying, and agree on service interfaces with the engineers who'll use them. I've also run setup calls with enterprise customers and written their configuration guides.
 
 #### Background
 
-- Engineering since 2011: PagerDuty, Defined.ai, Truphone, BookedBy, and consultancy before that.
-- MSc in Knowledge Management & Information Systems (ISCTE-IUL, 2018); Postgraduate Diploma and BSc in Computer Science (FCT-NOVA).
+I've worked in software engineering since 2011, at PagerDuty, Defined.ai, Truphone, BookedBy, and in consultancy.
 
-The [career page](/cv/) has the project details, scope, and what shipped.
+I completed an MSc in Knowledge Management & Information Systems at ISCTE-IUL in 2018. I also have a Postgraduate Diploma and BSc in Computer Science from FCT-NOVA.
+
+The [career page](/cv/) has the roles, project details, and results.
 
 #### Outside work
 
-- Hiking, trail running, travel, and games (board + video).
-- Home automation (Home Assistant, Shelly), safe electrical tinkering, and home-server setups.
+I enjoy trail running and go hiking or trekking whenever I can. I also travel and play board and video games.
+
+At home, I tinker with Home Assistant, Shelly devices, and home servers, including small electrical projects.
 
 ---
 
@@ -72,4 +61,4 @@ Data: MySQL, PostgreSQL, DynamoDB, Redis, Elasticsearch, Kafka, Spark
 
 ---
 
-[My path, career & achievements](/cv/) <i class="fa-solid fa-arrow-right"></i> 
+[Career and project details](/cv/) <i class="fa-solid fa-arrow-right"></i>

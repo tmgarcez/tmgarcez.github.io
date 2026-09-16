@@ -1,11 +1,11 @@
 ---
 title: '. projects'
-description: 'A collection of my open-source projects and experiments.'
+description: 'Code on GitHub and engineering work from my career.'
 ShowRssButtonInSectionTermList: false
 ---
 
 ---
 
-A few things I've built or contributed to.
+You can find my public repositories on [GitHub](https://github.com/tmgarcez).
 
-#### under construction
+For my work at PagerDuty and earlier roles, see the [career page](/cv/).
