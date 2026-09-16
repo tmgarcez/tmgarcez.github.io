@@ -1,4 +1,5 @@
 *.lock
+!mise.lock
 public/
 resources/
 .DS_Store

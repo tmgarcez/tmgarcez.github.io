@@ -2,25 +2,17 @@
 author: ['tmgarcez']
 title: 'Welcome'
 date: '2026-02-19T09:19:45Z'
-description: "Backend engineering, AI integrations, home automation, and code snippets from my working notebook."
+description: "Why I started this notebook and what I plan to write about."
 tags: ['meta']
 ShowToc: false
 ---
 
 ---
 
-This site is my working notebook: short how‑tos, build notes, and outcomes from things I ship or tinker with.
+I'm using this site to keep notes on software I build and things I try at home.
 
-What to expect:
+I plan to write about backend engineering, CI/CD, and building AI features into products. Home projects include Home Assistant, Shelly devices, small electrical projects, and home servers. I'll also keep code snippets here so I can find them again.
 
-- Backend engineering tips and CI/CD notes that reduce toil.
-- Applying AI in products: agentic flows and integrations that actually help UX/ops.
-- Home automation (Home Assistant, Shelly), small electrical projects, and home‑server setups.
-- Bite‑size code snippets I want future‑me to find quickly.
+For technical notes, I'll include the problem, the steps I tried, and what worked, with commands, configuration, and version details where they're useful.
 
-Format:
-
-- Minimal context, clear steps, and copy‑pasteable commands/config.
-- Version information and a quick "worked for me" section.
-
-Subscribe via RSS at [/index.xml](/index.xml). New posts whenever there's something worth saving.
+You can follow new posts through [RSS](/index.xml). I'll publish when I have something to write up.

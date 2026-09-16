@@ -1,2 +1,0 @@
-# Keep in sync with HUGO_VERSION in .github/workflows/hugo.yml
-hugo extended-0.155.0

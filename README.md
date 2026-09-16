@@ -10,8 +10,8 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 - Profile mode homepage with intro and quick links
 - Blog posts with reading time estimates
 - Career/CV page with downloadable PDF resume
-- Projects showcase
-- Full-text search
+- Links to public repositories and career projects
+- Full-text search for posts
 - Archive page
 - RSS feed
 - SEO optimized with sitemap and robots.txt
@@ -32,7 +32,7 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 │   ├── about/          # About page
 │   ├── cv/             # Career timeline
 │   ├── posts/          # Blog posts
-│   └── projects/       # Projects showcase
+│   └── projects/       # Links to code and career projects
 ├── layouts/
 │   └── partials/       # Theme template overrides
 ├── static/
@@ -41,7 +41,7 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 │   └── logo.svg        # Site logo
 ├── themes/
 │   └── PaperMod/       # Theme (git submodule)
-├── .tool-versions      # Pinned Hugo version (asdf)
+├── mise.toml           # Pinned Hugo version for local builds and CI
 ├── hugo.yaml           # Site configuration
 └── CNAME               # Custom domain config
 ```
@@ -50,31 +50,35 @@ Personal website and blog built with [Hugo](https://gohugo.io/) and the [PaperMo
 
 | Tool | Version | Why |
 | --- | --- | --- |
-| [Hugo](https://gohugo.io/installation/) | `0.155.0` **extended** | The only build dependency. Pinned in `.tool-versions` and in CI. |
+| [mise](https://mise.jdx.dev/getting-started.html) | Current release | Installs the Hugo version in `mise.toml`. |
+| [Hugo](https://gohugo.io/installation/) | `0.155.0` **extended** | The build tool. Installed through mise locally and in CI. |
 | Git | Any recent | Fetches the theme submodule, and feeds `enableGitInfo` page timestamps. |
 
-Hugo is the whole toolchain — there is no `package.json`, and no Node or Dart Sass
-step is needed. PaperMod ships plain CSS (no SCSS), so the regular Hugo edition
-would build this site today. Use **extended** anyway: it is what CI builds with,
-and keeping the two identical avoids surprises if SCSS or WebP processing is
-added later.
+Hugo is the only build dependency. PaperMod uses plain CSS, so no Node or Dart
+Sass step is needed. Local builds and CI use the extended edition.
 
 PaperMod additionally requires Hugo `>= 0.146.0` (see `themes/PaperMod/theme.toml`).
 
-### Install Hugo with asdf (recommended)
+### Install Hugo with mise
 
-The pinned version lives in `.tool-versions`, so this is a one-time setup:
+From the repository root:
 
 ```bash
-asdf plugin add hugo
-asdf install            # reads .tool-versions
-hugo version            # => hugo v0.155.0-... +extended
+mise trust
+mise install
+mise exec -- hugo version
 ```
 
-The edition is part of the asdf version string (`extended-0.155.0`) rather than a
-separate setting, because asdf models exactly one version per tool.
+`mise.toml` selects `hugo-extended = "0.155.0"`. The executable is still named
+`hugo`; the version output should include `v0.155.0` and `+extended`.
 
-### Install Hugo without asdf
+`mise.lock` records the resolved downloads and checksums. Commit it whenever
+you change `mise.toml`.
+
+`mise exec --` loads the project's tools without requiring shell activation.
+If mise is already activated in your shell, you can run `hugo` directly.
+
+### Install Hugo without mise
 
 ```bash
 brew install hugo
@@ -100,12 +104,12 @@ release rather than the pinned one. To match CI exactly, download
 
    Skipping this leaves `themes/PaperMod/` empty and every build fails.
 
-2. Install Hugo — see [Prerequisites](#prerequisites).
+2. Install Hugo with mise as described above.
 
 ## Local Development
 
 ```bash
-hugo server -D
+mise exec -- hugo server -D
 ```
 
 Open [http://localhost:1313](http://localhost:1313). The server live-reloads on
@@ -115,58 +119,54 @@ save. `-D` includes drafts, which production builds exclude via
 ## Building for Production
 
 ```bash
-hugo --minify
+mise exec -- hugo --minify
 ```
 
 The static site will be generated in the `public/` directory.
 
 ## Deployment
 
-The site is deployed to GitHub Pages by `.github/workflows/hugo.yml`. Push to
+The site is deployed to GitHub Pages by `.github/workflows/hugo.yml`. CI uses
+`jdx/mise-action` to install Hugo from the same `mise.toml` used locally. Push to
 `main` (or run the workflow manually from the Actions tab) to trigger a deploy.
+Pull requests build the site without deploying it.
 
 ### Upgrading Hugo
 
-The version is pinned in two places that must move together:
+Update `hugo-extended` in `mise.toml`, run `mise install`, and verify with
+`mise exec -- hugo --minify`. CI reads the same pin. The workflow pins the mise
+installer version separately.
 
-- `.tool-versions` — `hugo extended-<version>` (local builds)
-- `.github/workflows/hugo.yml` — `HUGO_VERSION` (CI builds)
+## Navigation
 
-Bump both, run `asdf install`, then verify with `hugo --minify` before pushing.
+The header links to About, Career, and Posts. Home has About and Career buttons,
+plus a compact CV download icon. Archive and Search are linked from Posts. The
+Projects page remains available at `/projects/` but is not in the main menu.
+
+Menu entries, homepage buttons, and social icons are configured in `hugo.yaml`.
 
 ## Creating New Content
 
 ```bash
-hugo new posts/my-new-post.md
+mise exec -- hugo new posts/my-new-post.md
 ```
 
 ## Updating the CV PDF
 
-Replace `assets/cv/tmgarcez-cv.pdf` and rebuild — nothing else to do. The link is
-cache-busted automatically, so there is no version string to remember to bump.
-
-GitHub Pages serves every asset with a fixed `Cache-Control: max-age=600` and
-allows no response-header overrides (no `_headers`, no `.htaccess`), so the URL is
-the only cache key we control. That TTL does not help on mobile anyway: browsers
-hand PDFs to an external viewer or the Downloads folder rather than the page
-cache, and in-app browsers proxy them through a server-side viewer that ignores
-it entirely. Both leave visitors on an old CV indefinitely.
-
-`layouts/partials/social_icons.html` therefore hashes the file's own bytes at
-build time and appends them to the link:
+Replace `assets/cv/tmgarcez-cv.pdf` and rebuild. The compact CV icon is configured
+in `hugo.yaml` under `socialIcons`. The existing `layouts/partials/social_icons.html`
+override hashes the PDF's bytes and appends the hash to its URL:
 
 ```html
 <a href="/cv/tmgarcez-cv.pdf?v=e5669c29">
 ```
 
-Living in `assets/` rather than `static/` is what makes this possible — only
-`assets/` goes through Hugo Pipes, where `resources.Get` exposes the content to
-hash. The file still publishes to `/cv/tmgarcez-cv.pdf`, so links already shared
-elsewhere keep resolving.
+The URL changes when the PDF changes, so caches can distinguish versions. Keep
+the PDF in `assets/`, not `static/`, so Hugo can read and publish it. The file
+still publishes to `/cv/tmgarcez-cv.pdf`, and existing links keep resolving.
 
-The rule is generic: any `socialIcons` entry whose URL maps to a file under
-`assets/` gets the same treatment. External links, `mailto:` and Hugo-generated
-paths like `/index.xml` pass through untouched.
+External links, `mailto:` links, and Hugo-generated paths such as `/index.xml`
+do not need a content hash.
 
 ## Updating the Theme
 
@@ -175,8 +175,8 @@ upstream version:
 
 ```bash
 git submodule update --remote themes/PaperMod
-hugo server -D                     # verify the site still renders
-git add themes/PaperMod            # commits the new pinned commit
+mise exec -- hugo server -D        # verify the site still renders
+git add themes/PaperMod            # stage the new pinned commit
 ```
 
 ## Troubleshooting
@@ -185,12 +185,15 @@ git add themes/PaperMod            # commits the new pinned commit
 `git submodule update --init --recursive`. Confirm with `git submodule status`:
 a leading `-` means uninitialized.
 
-**`No version is set for command hugo`** — asdf found no `.tool-versions` entry
-for Hugo. Run the command from the repository root, and confirm `.tool-versions`
-is present and lists `hugo extended-0.155.0`.
+**Local site shows Page Not Found** — stop the server, initialise the PaperMod
+submodule with `git submodule update --init --recursive`, then start it again with
+`mise exec -- hugo server -D`.
 
-**`hugo: command not found` after `asdf install`** — the shim is missing. Run
-`asdf reshim hugo`, and make sure asdf is initialized in your shell.
+**Mise reports an untrusted configuration** — review `mise.toml`, then run
+`mise trust` from the repository root.
+
+**`hugo: command not found`** — run `mise install`, then use
+`mise exec -- hugo version`. Shell activation is optional when using `mise exec`.
 
 **All pages share the same "last modified" date in production** — `enableGitInfo`
 derives timestamps from git log, so the build needs full history. The deploy
